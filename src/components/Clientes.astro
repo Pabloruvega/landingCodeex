@@ -1,0 +1,5 @@
+---
+import { getDictionary, getLocale } from '../i18n/utils';
+const dictionary = getDictionary(getLocale(Astro.currentLocale));
+---
+<div class="clientes"><div class="container"><h3>{dictionary.clients.title}</h3><div class="logos"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-500.webp" alt="Cliente 1"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-450.webp" alt="Cliente 2"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-460.webp" alt="Cliente 3"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-470.webp" alt="Cliente 4"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-480.webp" alt="Cliente 5"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-490.webp" alt="Cliente 6"></div></div></div>

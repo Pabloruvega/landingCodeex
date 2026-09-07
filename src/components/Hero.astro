@@ -1,0 +1,10 @@
+---
+import hero from '../assets/hero.webp';
+import { getDictionary, getLocale, localizedUrl } from '../i18n/utils';
+const dictionary = getDictionary(getLocale(Astro.currentLocale));
+---
+<section class="hero" id="top">
+  <div class="hero-img">
+    <img src={hero.src} alt={dictionary.hero.imageAlt}>
+  </div>
+</section>

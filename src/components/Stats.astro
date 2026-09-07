@@ -1,0 +1,11 @@
+---
+import { getDictionary, getLocale } from '../i18n/utils';
+const dictionary = getDictionary(getLocale(Astro.currentLocale));
+---
+<div class="stats">
+  <div class="container">
+    <div class="stat"><div class="num">216+</div><div class="label">{dictionary.stats.projects}</div></div>
+    <div class="stat"><div class="num">20k+</div><div class="label">{dictionary.stats.built}</div></div>
+    <div class="stat"><div class="num">98%</div><div class="label">{dictionary.stats.satisfaction}</div></div>
+  </div>
+</div>

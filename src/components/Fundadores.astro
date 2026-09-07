@@ -1,0 +1,21 @@
+---
+import carmelo from '../assets/carmelo.webp';
+import maximiliano from '../assets/maximiliano.webp';
+import fabricio from '../assets/fabricio.webp';
+import { getDictionary, getLocale } from '../i18n/utils';
+const dictionary = getDictionary(getLocale(Astro.currentLocale));
+---
+<div class="container fundadores">
+	<div class="fundador">
+		<div class="ph"><img src={carmelo.src} alt="Carmelo Corallo"></div>
+		<h3>{dictionary.founders.carmelo}</h3><div class="role">{dictionary.founders.founder}</div>
+	</div>
+	<div class="fundador">
+		<div class="ph"><img src={maximiliano.src} alt="Maximiliano Corallo"></div>
+		<h3>{dictionary.founders.maximiliano}</h3><div class="role">{dictionary.founders.manager}</div>
+	</div>
+	<div class="fundador">
+		<div class="ph"><img src={fabricio.src} alt="Fabricio Corallo"></div>
+		<h3>{dictionary.founders.fabricio}</h3><div class="role">{dictionary.founders.manager}</div>
+	</div>
+</div>

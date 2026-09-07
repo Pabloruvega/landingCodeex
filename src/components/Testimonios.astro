@@ -1,0 +1,25 @@
+---
+import luis from '../assets/luis-lopez.webp';
+import testimonio2 from '../assets/testimonio-2.webp';
+import testimonio3 from '../assets/testimonio-3.webp';
+import testimonio4 from '../assets/testimonio-4.webp';
+import { getDictionary, getLocale } from '../i18n/utils';
+const dictionary = getDictionary(getLocale(Astro.currentLocale));
+---
+<section class="testimonios" data-reveal>
+	<div class="container">
+		<div class="eyebrow">{dictionary.testimonials.eyebrow}</div>
+		<h2 class="section-title" style="margin-bottom:40px;">{dictionary.testimonials.title}</h2>
+		<div class="quote-wrap">
+			<div class="avatar"><img src={luis.src} alt="Luis Lopez"></div>
+			<blockquote>{dictionary.testimonials.quote}</blockquote>
+			<div class="who">{dictionary.testimonials.who}</div>
+			<div class="thumb-nav" style="display:flex; justify-content:center; gap:14px; margin-top:36px;">
+				<div class="thumb active" style="width:56px; height:56px; border-radius:50%; overflow:hidden; border:2px solid var(--accent-2); cursor:pointer;"><img src={luis.src} alt=""></div>
+				<div class="thumb" style="width:56px; height:56px; border-radius:50%; overflow:hidden; border:2px solid transparent; cursor:pointer; opacity:.6;"><img src={testimonio2.src} alt=""></div>
+				<div class="thumb" style="width:56px; height:56px; border-radius:50%; overflow:hidden; border:2px solid transparent; cursor:pointer; opacity:.6;"><img src={testimonio3.src} alt=""></div>
+				<div class="thumb" style="width:56px; height:56px; border-radius:50%; overflow:hidden; border:2px solid transparent; cursor:pointer; opacity:.6;"><img src={testimonio4.src} alt=""></div>
+			</div>
+		</div>
+	</div>
+</section>

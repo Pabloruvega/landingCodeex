@@ -1,0 +1,5 @@
+---
+import { getDictionary, getLocale } from '../i18n/utils';
+const dictionary = getDictionary(getLocale(Astro.currentLocale));
+---
+<section class="contacto" id="contacto"><div class="container"><div class="head"><div class="eyebrow" style="color:var(--accent);">{dictionary.contact.eyebrow}</div><h2 class="section-title" style="color:#fff;">{dictionary.contact.title}</h2></div><form onsubmit={`event.preventDefault(); alert('${dictionary.contact.alert}');`}><input type="text" placeholder={dictionary.contact.name} required><input type="text" placeholder={dictionary.contact.surname} required><input type="email" placeholder={dictionary.contact.email} required><input type="tel" placeholder={dictionary.contact.phone}><select class="full"><option value="" disabled selected>{dictionary.contact.project}</option><option>{dictionary.contact.investments}</option><option>{dictionary.contact.design}</option><option>{dictionary.contact.construction}</option><option>{dictionary.contact.direction}</option></select><textarea class="full" placeholder={dictionary.contact.message}></textarea><button type="submit">{dictionary.contact.send}</button></form></div></section>

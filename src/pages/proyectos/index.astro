@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import ProjectGallery from '../../components/ProjectGallery.astro';
+import { getDictionary } from '../../i18n/utils';
+
+const dictionary = getDictionary(Astro.currentLocale);
+---
+<Base title={`${dictionary.projectsPage.title} | ${dictionary.siteTitle}`}>
+  <Header />
+  <main class="content-page">
+    <div class="container">
+      <div class="eyebrow">{dictionary.projectsPage.eyebrow}</div>
+      <h1 class="section-title">{dictionary.projectsPage.title}</h1>
+      <p class="content-intro">{dictionary.projectsPage.intro}</p>
+      <ProjectGallery />
+    </div>
+  </main>
+</Base>

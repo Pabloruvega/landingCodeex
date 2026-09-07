@@ -1,0 +1,39 @@
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  let animationContext: { revert: () => void } | undefined;
+
+  function setupReveals() {
+    animationContext?.revert();
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    animationContext = gsap.context(() => {
+      document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((section) => {
+        const items = section.querySelectorAll<HTMLElement>('[data-reveal-item]');
+        const targets = items.length > 0 ? items : [section];
+
+        gsap.from(targets, {
+          y: 28,
+          autoAlpha: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          stagger: items.length > 1 ? 0.12 : 0,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 82%',
+            once: true,
+          },
+        });
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', setupReveals);
+  setupReveals();
+</script>

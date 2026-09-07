@@ -1,0 +1,22 @@
+---
+import '../styles/global.css';
+import { getLocale, getDictionary } from '../i18n/utils';
+import { ClientRouter } from 'astro:transitions';
+const locale = getLocale(Astro.currentLocale);
+const dictionary = getDictionary(locale);
+const { title = dictionary.siteTitle } = Astro.props;
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <div transition:animate="slide">
+      <slot />
+    </div>
+  </body>
+</html>

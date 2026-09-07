@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import { getLocale, localizedUrl } from '../i18n/utils';
+import coralCover from '../assets/complejo-coral.webp';
+import umbraCover from '../assets/umbra-del-bono.webp';
+import image12 from '../assets/12-2.webp';
+import image13 from '../assets/13-2.webp';
+import image14 from '../assets/14-1-300x267.webp';
+import image15 from '../assets/15-1-768x329.webp';
+import image16 from '../assets/16-1.webp';
+import image17 from '../assets/17-1-300x266.webp';
+import image18 from '../assets/18-1.webp';
+import image19 from '../assets/19-1.webp';
+import image20 from '../assets/20-1.webp';
+import image21 from '../assets/21-1.webp';
+import image22 from '../assets/22-1.webp';
+import image23 from '../assets/23-1-300x266.webp';
+import image24 from '../assets/24-1-768x329.webp';
+import image25 from '../assets/25-1.webp';
+import image26 from '../assets/26-1-300x266.webp';
+import image27 from '../assets/27-1.webp';
+import image28 from '../assets/28-1.webp';
+import image29 from '../assets/29-2-1.webp';
+import image30 from '../assets/30-1-768x329.webp';
+import image31 from '../assets/31-1-300x267.webp';
+
+const images = [
+  image12, image13, image14, image15, image16,
+  image17, image18, image19, image20, image21,
+  image22, image23, image24, image25, image26,
+  image27, image28, image29, image30, image31,
+];
+const locale = getLocale(Astro.currentLocale);
+---
+<div class="portfolio-grid">
+  <a class="portfolio-tile portfolio-project-tile" href={localizedUrl(locale, 'proyectos/complejo-coral')}>
+    <Image src={coralCover} alt="Complejo Coral" loading="lazy" />
+    <span>Complejo Coral</span>
+  </a>
+  <a class="portfolio-tile portfolio-project-tile" href={localizedUrl(locale, 'proyectos/umbra-del-bono-residence')}>
+    <Image src={umbraCover} alt="Umbra del Bono Residence" loading="lazy" />
+    <span>Umbra del Bono Residence</span>
+  </a>
+  {images.map((image, index) => (
+    <a class:list={["portfolio-tile", [3, 13, 18].includes(index) ? 'portfolio-tile-wide' : '']} href={image.src} target="_blank" rel="noopener">
+      <Image src={image} alt="" loading="lazy" />
+    </a>
+  ))}
+</div>

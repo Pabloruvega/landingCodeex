@@ -1,0 +1,29 @@
+---
+import logo from '../assets/logo.webp';
+import { getDictionary, getLocale, localizedUrl, switchLocaleUrl } from '../i18n/utils';
+const locale = getLocale(Astro.currentLocale);
+const dictionary = getDictionary(locale);
+const otherLocale = locale === 'es' ? 'en' : 'es';
+---
+<header transition:persist="site-header">
+  <div class="nav-wrap container" style="padding-left:0; padding-right:0;">
+    <a class="logo" href={localizedUrl(locale)}><img src={logo.src} alt="Codeex Construcciones"></a>
+    <nav>
+      <ul>
+        <li><a href="#proyecto-coral">{dictionary.nav.coral}</a></li>
+        <li><a href="#proyecto-umbra">{dictionary.nav.umbra}</a></li>
+        <li><a href={localizedUrl(locale, 'proyectos')}>{dictionary.nav.projects}</a></li>
+        <li><a href={localizedUrl(locale, 'blog')}>{dictionary.nav.blog}</a></li>
+        <li><a href="#servicios">{dictionary.nav.services}</a></li>
+        <li><a href="#nosotros">{dictionary.nav.about}</a></li>
+        <li><a href="#contacto">{dictionary.nav.contact}</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <a class="desktop-only" href="https://api.whatsapp.com/send/?phone=5492645272888&text=Hola%2C+necesito+informaci%C3%B3n+sobre&type=phone_number&app_absent=0" aria-label={dictionary.whatsappLabel}>{dictionary.whatsappLabel}</a>
+      <a class="desktop-only" href="https://www.instagram.com/codeexconstrucciones/" aria-label="Instagram">Instagram</a>
+      <a class="language-switch" href={switchLocaleUrl(otherLocale, Astro.url.pathname)} aria-label={dictionary.languageSwitchLabel}>{dictionary.language}</a>
+      <button class="menu-toggle" aria-label={dictionary.menuLabel}>&#9776;</button>
+    </div>
+  </div>
+</header>

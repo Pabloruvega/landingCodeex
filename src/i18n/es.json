@@ -1,0 +1,123 @@
+{
+  "siteTitle": "Codeex Construcciones",
+  "language": "ES",
+  "languageSwitchLabel": "Cambiar idioma",
+  "menuLabel": "Abrir menú",
+  "whatsappLabel": "WhatsApp",
+  "nav": {
+    "coral": "CORAL",
+    "umbra": "UMBRA",
+    "projects": "PROYECTOS",
+    "blog": "BLOG",
+    "services": "SERVICIOS",
+    "about": "NOSOTROS",
+    "contact": "CONTACTO"
+  },
+  "hero": {
+    "title": "Donde la arquitectura",
+    "titleStrong": "redefine cómo vivís.",
+    "description": "Desde el diseño hasta la ejecución, desarrollamos proyectos donde cada decisión está pensada para lograr resultados de calidad, precisión y durabilidad.",
+    "button": "Ver proyectos",
+    "imageAlt": "Proyecto arquitectónico de Codeex Construcciones"
+  },
+  "trajectory": {
+    "eyebrow": "Construimos calidad con",
+    "title": "Trayectoria",
+    "paragraphs": [
+      "Con raíces desde fines del siglo XIX, la historia de Codeex está marcada por una tradición familiar vinculada a la construcción. Carmelo Corallo, socio fundador, desarrolló obras emblemáticas en Mendoza y San Juan, participando en proyectos de gran valor arquitectónico que aún hoy forman parte del patrimonio de la región.",
+      "Ese legado de oficio, compromiso y excelencia se transmitió de generación en generación, dando origen a Codeex S.R.L., una empresa que mantiene vivo el arte del buen construir, adaptándolo a los desafíos actuales.",
+      "Hoy, Codeex integra diseño, gestión y ejecución bajo un sistema llave en mano, garantizando control, calidad y eficiencia en cada etapa del proyecto."
+    ]
+  },
+  "founders": {
+    "carmelo": "Carmelo Corallo",
+    "maximiliano": "Maximiliano Corallo",
+    "fabricio": "Fabricio Corallo",
+    "founder": "Fundador",
+    "manager": "Socio gerente"
+  },
+  "stats": {
+    "projects": "Proyectos ejecutados",
+    "built": "m² construidos",
+    "satisfaction": "Satisfacción del cliente"
+  },
+  "services": {
+    "eyebrow": "Un proceso integral, de principio a fin",
+    "title": "Servicios",
+    "design": "Diseño",
+    "direction": "Dirección de obra",
+    "construction": "Construcción",
+    "more": "Ver más",
+    "designAlt": "Diseño arquitectónico",
+    "directionAlt": "Dirección de obra",
+    "constructionAlt": "Construcción"
+  },
+  "testimonials": {
+    "eyebrow": "Lo que dicen quienes",
+    "title": "Confiaron en nosotros",
+    "quote": "\"La realidad es que estamos muy contentos, estamos muy conformes. Con la obra, con todo lo que se ha trabajado, con todo lo que se ha hecho acá. Sin duda los recomendaría, a todo el mundo.\"",
+    "who": "Luis Lopez — Farmacia San Benito, Propietario",
+    "avatarAlt": "Luis Lopez"
+  },
+  "clients": {
+    "title": "Más de 400 clientes en toda la provincia nos eligieron"
+  },
+  "projectsHome": {
+    "eyebrow": "Proyectos",
+    "intro": "Nuestra experiencia se construye sobre proyectos que hoy ya son parte del entorno y reflejan nuestro estándar de calidad.",
+    "coralTitle": "Invertí hoy pensando en el futuro",
+    "coralDescription": "Integra espacios residenciales y comerciales. Un desarrollo pensado desde la calidad, el diseño y la proyección, donde cada detalle está orientado a generar valor y confort.",
+    "coralLocation": "General Paz 1165 Oeste — Entre Urquiza y S. Navarro, Capital, San Juan",
+    "umbraTitle": "Elegancia y sustentabilidad en la mejor ubicación de San Juan",
+    "umbraDescription": "Umbra Del Bono Residences propone una nueva forma de vivir en un espacio que respira con su entorno, que protege y abraza a quienes lo habitan. Una arquitectura contemporánea que dialoga con la naturaleza.",
+    "umbraLocation": "Intersección de Esteban Echeverría y Nuche, Rivadavia Oeste",
+    "more": "Conocé más"
+  },
+  "contact": {
+    "eyebrow": "¿Estás buscando diseños y ejecución de excelencia para tu obra?",
+    "title": "Contactanos",
+    "name": "Nombre",
+    "surname": "Apellido",
+    "email": "Email",
+    "phone": "Teléfono",
+    "project": "¿Qué proyecto le interesa?",
+    "investments": "Inversiones",
+    "design": "Diseño",
+    "construction": "Construcción",
+    "direction": "Dirección de Obra",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "alert": "Formulario de ejemplo — conectar a un backend o servicio de email para uso real."
+  },
+  "footer": {
+    "location": "Ubicación",
+    "address": "Hudson 886, San Juan, Argentina",
+    "social": "Redes sociales",
+    "contact": "Contacto",
+    "hours": "Lunes a Viernes,",
+    "hoursDetail": "8:30–13:00 y 16:30–21:00",
+    "emails": "Emails",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "linkedin": "Linkedin",
+    "copyright": "© 2026 Codeex Construcciones",
+    "credit": "Sitio creado y desarrollado por Pablo Vega"
+  },
+  "projectsPage": {
+    "eyebrow": "Experiencia construida",
+    "title": "Proyectos",
+    "intro": "Una selección de desarrollos residenciales y comerciales.",
+    "filterLabel": "Filtrar por categoría",
+    "all": "Todas",
+    "empty": "No hay proyectos para esta categoría.",
+    "view": "Ver proyecto",
+    "back": "← Volver a proyectos"
+  },
+  "blogPage": {
+    "eyebrow": "Ideas y procesos",
+    "title": "Blog",
+    "intro": "Notas sobre arquitectura, materiales y planificación de obra.",
+    "read": "Leer nota",
+    "back": "← Volver al blog"
+  }
+}
