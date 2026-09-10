@@ -1,13 +1,106 @@
 ---
+import { Image } from 'astro:assets';
 import { getDictionary, getLocale } from '../i18n/utils';
-const dictionary = getDictionary(getLocale(Astro.currentLocale));
+import coralLogo from '../assets/Logo-Coral.webp';
+import umbraLogo from '../assets/logoumbra.png';
+import grid1 from '../assets/21-1.webp';
+import grid2 from '../assets/20-1.webp';
+import grid3 from '../assets/22-1.webp';
+import grid4 from '../assets/27-1.webp';
+import grid5 from '../assets/25-1.webp';
+
+const t = getDictionary(getLocale(Astro.currentLocale)).projectsHome;
+const gridImages = [grid1, grid2, grid3, grid4, grid5];
+
+const featured = [
+  {
+    id: 'proyecto-coral',
+    logo: coralLogo,
+    name: t.coralName,
+    title: t.coralTitle,
+    description: t.coralDescription,
+    location: t.coralLocation,
+    href: 'https://complejocoral.com.ar/',
+  },
+  {
+    id: 'proyecto-umbra',
+    logo: umbraLogo,
+    name: t.umbraName,
+    title: t.umbraTitle,
+    description: t.umbraDescription,
+    location: t.umbraLocation,
+    href: 'https://umbra.website/',
+  },
+];
 ---
-<section id="proyectos" style="padding-bottom:0; background:var(--cream);" data-reveal>
-  <div class="container" style="padding-bottom:60px;"><div class="eyebrow">{dictionary.projectsHome.eyebrow}</div><h2 class="section-title">{dictionary.projectsHome.intro}</h2></div>
-  <div class="galeria-strip">
-    <img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/12.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/13.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/14-2.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/15-2.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/16-2.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/17-2.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/18-2.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/19-2.webp" alt="">
+<section id="proyectos" style="background:var(--cream);" data-reveal>
+  <div class="container">
+    <div data-reveal-item>
+      <div class="eyebrow">{t.eyebrow}</div>
+      <h2 class="section-title">{t.intro}</h2>
+    </div>
+
+    <div class="project-stack">
+      {featured.map((p) => (
+        <article class="project-card" id={p.id} data-reveal-item>
+          <div class="pc-media">
+            <img class="pc-logo" src={p.logo.src} alt={p.name} />
+            <span class="pc-badge">
+              {t.badge}
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3a1 1 0 0 0-2 0v4.06A7 7 0 0 0 5 14v2H3v3h18v-3h-2v-2a7 7 0 0 0-6-6.94Z"/></svg>
+            </span>
+          </div>
+          <button class="pc-head" type="button" aria-expanded="false" aria-label={t.toggleAria}>
+            <span class="pc-name">{p.name}</span>
+            <span class="pc-toggle">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14.7 6.4 9.1 7.8 7.7l4.2 4.2 4.2-4.2 1.4 1.4Z"/></svg>
+            </span>
+          </button>
+          <div class="pc-body">
+            <div class="pc-body-inner">
+              <div>
+                <h3>{p.title}</h3>
+                <p>{p.description}</p>
+                <div class="pc-location">{p.location}</div>
+                <a class="btn" href={p.href} target="_blank" rel="noopener">{t.more}</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="project-grid">
+      {gridImages.map((image, i) => (
+        <article class="project-tile" data-reveal-item>
+          <div class="pt-media">
+            <Image src={image} alt={t.grid[i]} loading="lazy" />
+            <span class="pc-badge">
+              {t.badge}
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3a1 1 0 0 0-2 0v4.06A7 7 0 0 0 5 14v2H3v3h18v-3h-2v-2a7 7 0 0 0-6-6.94Z"/></svg>
+            </span>
+          </div>
+          <span class="pt-name">{t.grid[i]}</span>
+        </article>
+      ))}
+    </div>
   </div>
 </section>
-<article class="proyecto-feature" id="proyecto-coral" data-reveal><div class="pf-grid"><div class="pf-img"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/10-1-1024x407.webp" alt="Complejo Coral"></div><div class="pf-content"><span class="tag">Complejo Coral</span><h3>{dictionary.projectsHome.coralTitle}</h3><p>{dictionary.projectsHome.coralDescription}</p><div class="pf-location">{dictionary.projectsHome.coralLocation}</div><a class="btn" href="https://complejocoral.com.ar/" target="_blank" rel="noopener">{dictionary.projectsHome.more}</a></div></div></article>
-<article class="proyecto-feature" id="proyecto-umbra" data-reveal><div class="pf-grid"><div class="pf-content" style="order:2;"><span class="tag">Umbra del Bono Residence</span><h3>{dictionary.projectsHome.umbraTitle}</h3><p>{dictionary.projectsHome.umbraDescription}</p><div class="pf-location">{dictionary.projectsHome.umbraLocation}</div><a class="btn" href="https://umbra.website/" target="_blank" rel="noopener">{dictionary.projectsHome.more}</a></div><div class="pf-img" style="order:1;"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/11-1-1024x407.webp" alt="Umbra del Bono"></div></div></article>
-<div class="galeria-strip" style="margin-bottom:0;"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/12-2.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/13-2.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/14-1.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/15-1.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/16-1.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/17-1.webp" alt=""><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/18-1.webp" alt=""></div>
+
+<script>
+  function initProjectCards() {
+    document.querySelectorAll<HTMLElement>('.project-card .pc-head').forEach((head) => {
+      if (head.dataset.bound === '1') return;
+      head.dataset.bound = '1';
+      head.addEventListener('click', () => {
+        const card = head.closest('.project-card');
+        if (!card) return;
+        const open = card.classList.toggle('is-open');
+        head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  }
+
+  initProjectCards();
+  document.addEventListener('astro:page-load', initProjectCards);
+</script>

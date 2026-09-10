@@ -15,12 +15,12 @@ const blog = defineCollection({
 
 const proyectos = defineCollection({
   loader: glob({ base: './src/content/proyectos', pattern: '**/*.{md,mdx}' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     ubicacion: z.string(),
     categoria: z.string(),
-    coverImage: z.string(),
-    gallery: z.array(z.string()).optional(),
+    coverImage: image(),
+    gallery: z.array(image()).optional(),
     description: z.string(),
     destacado: z.boolean().default(false),
   }),

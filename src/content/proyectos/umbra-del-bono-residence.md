@@ -2,10 +2,10 @@
 title: "Umbra del Bono Residence"
 ubicacion: "Intersección de Esteban Echeverría y Nuche, Rivadavia Oeste"
 categoria: "Residencial"
-coverImage: "https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/11-1-1024x407.webp"
+coverImage: "../../assets/umbra-del-bono.webp"
 gallery:
-  - "https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/14-2.webp"
-  - "https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/15-2.webp"
+  - "../../assets/14-1-300x267.webp"
+  - "../../assets/15-1-768x329.webp"
 description: "Umbra Del Bono Residences propone una nueva forma de vivir en un espacio que respira con su entorno, que protege y abraza a quienes lo habitan. Una arquitectura contemporánea que dialoga con la naturaleza."
 destacado: true
 ---

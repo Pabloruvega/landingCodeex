@@ -1,5 +1,96 @@
 ---
 import { getDictionary, getLocale } from '../i18n/utils';
 const dictionary = getDictionary(getLocale(Astro.currentLocale));
+// Free, no-backend email delivery. Create a key at https://web3forms.com
+// and set it in an .env file as PUBLIC_WEB3FORMS_KEY=xxxxxxxx-xxxx-...
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
 ---
-<section class="contacto" id="contacto"><div class="container"><div class="head"><div class="eyebrow" style="color:var(--accent);">{dictionary.contact.eyebrow}</div><h2 class="section-title" style="color:#fff;">{dictionary.contact.title}</h2></div><form onsubmit={`event.preventDefault(); alert('${dictionary.contact.alert}');`}><input type="text" placeholder={dictionary.contact.name} required><input type="text" placeholder={dictionary.contact.surname} required><input type="email" placeholder={dictionary.contact.email} required><input type="tel" placeholder={dictionary.contact.phone}><select class="full"><option value="" disabled selected>{dictionary.contact.project}</option><option>{dictionary.contact.investments}</option><option>{dictionary.contact.design}</option><option>{dictionary.contact.construction}</option><option>{dictionary.contact.direction}</option></select><textarea class="full" placeholder={dictionary.contact.message}></textarea><button type="submit">{dictionary.contact.send}</button></form></div></section>
+<section class="contacto" id="contacto">
+  <div class="container">
+    <div class="head">
+      <div class="eyebrow" style="color:var(--accent);">{dictionary.contact.eyebrow}</div>
+      <h2 class="section-title" style="color:#fff;">{dictionary.contact.title}</h2>
+    </div>
+    <form
+      id="contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      data-sending={dictionary.contact.sending}
+      data-success={dictionary.contact.success}
+      data-error={dictionary.contact.error}
+    >
+      <input type="hidden" name="access_key" value={accessKey}>
+      <input type="hidden" name="subject" value="Nuevo contacto desde codeexconstrucciones.com">
+      <input type="hidden" name="from_name" value="Web Codeex Construcciones">
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="text" name="name" placeholder={dictionary.contact.name} autocomplete="given-name" required>
+      <input type="text" name="surname" placeholder={dictionary.contact.surname} autocomplete="family-name" required>
+      <input type="email" name="email" placeholder={dictionary.contact.email} autocomplete="email" required>
+      <input type="tel" name="phone" placeholder={dictionary.contact.phone} autocomplete="tel">
+      <select class="full" name="project" required>
+        <option value="" disabled selected>{dictionary.contact.project}</option>
+        <option value={dictionary.contact.investments}>{dictionary.contact.investments}</option>
+        <option value={dictionary.contact.design}>{dictionary.contact.design}</option>
+        <option value={dictionary.contact.construction}>{dictionary.contact.construction}</option>
+        <option value={dictionary.contact.direction}>{dictionary.contact.direction}</option>
+      </select>
+      <textarea class="full" name="message" placeholder={dictionary.contact.message} required></textarea>
+      <button type="submit">{dictionary.contact.send}</button>
+      <p class="form-status full" role="status" aria-live="polite" hidden></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  function initContactForm() {
+    const form = document.querySelector('#contact-form');
+    if (!(form instanceof HTMLFormElement) || form.dataset.bound === 'true') return;
+    form.dataset.bound = 'true';
+
+    const status = form.querySelector('.form-status');
+    const button = form.querySelector('button[type="submit"]');
+    const setStatus = (message, ok) => {
+      if (!(status instanceof HTMLElement)) return;
+      status.textContent = message;
+      status.hidden = false;
+      status.dataset.state = ok ? 'ok' : 'error';
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (form.querySelector('[name="botcheck"]')?.checked) return;
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (!data.access_key) {
+        setStatus(form.dataset.error || 'Error', false);
+        console.warn('[contact] PUBLIC_WEB3FORMS_KEY is not set.');
+        return;
+      }
+
+      button?.setAttribute('disabled', 'true');
+      setStatus(form.dataset.sending || 'Sending…', true);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (res.ok && json.success) {
+          form.reset();
+          setStatus(form.dataset.success || 'Sent', true);
+        } else {
+          setStatus(form.dataset.error || 'Error', false);
+        }
+      } catch {
+        setStatus(form.dataset.error || 'Error', false);
+      } finally {
+        button?.removeAttribute('disabled');
+      }
+    });
+  }
+
+  initContactForm();
+  document.addEventListener('astro:page-load', initContactForm);
+</script>

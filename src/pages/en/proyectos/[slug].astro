@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../../layouts/Base.astro';
 import Header from '../../../components/Header.astro';
 import { getDictionary } from '../../../i18n/utils';
@@ -21,10 +22,10 @@ const dictionary = getDictionary(Astro.currentLocale);
       <p class="content-date">{project.data.categoria}</p>
       <h1 class="section-title">{project.data.title}</h1>
       <p class="project-location project-location-detail">{project.data.ubicacion}</p>
-      <img class="project-cover" src={project.data.coverImage} alt={project.data.title}>
+      <Image class="project-cover" src={project.data.coverImage} alt={project.data.title} />
       <p class="content-intro">{project.data.description}</p>
       <div class="markdown-content"><Content /></div>
-      {project.data.gallery && project.data.gallery.length > 0 && <div class="project-gallery">{project.data.gallery.map((image) => <img src={image} alt={project.data.title} loading="lazy">)}</div>}
+      {project.data.gallery && project.data.gallery.length > 0 && <div class="project-gallery">{project.data.gallery.map((image) => <Image src={image} alt={project.data.title} loading="lazy" />)}</div>}
     </article>
   </main>
 </Base>

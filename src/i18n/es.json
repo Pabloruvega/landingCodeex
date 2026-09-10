@@ -71,7 +71,12 @@
     "umbraTitle": "Elegancia y sustentabilidad en la mejor ubicación de San Juan",
     "umbraDescription": "Umbra Del Bono Residences propone una nueva forma de vivir en un espacio que respira con su entorno, que protege y abraza a quienes lo habitan. Una arquitectura contemporánea que dialoga con la naturaleza.",
     "umbraLocation": "Intersección de Esteban Echeverría y Nuche, Rivadavia Oeste",
-    "more": "Conocé más"
+    "more": "Conocé más",
+    "badge": "Desarrollo integral",
+    "coralName": "Complejo Coral",
+    "umbraName": "Umbra del Bono Residence",
+    "toggleAria": "Mostrar u ocultar detalles del proyecto",
+    "grid": ["Complejo Rubik", "Oficinas Codeex", "Casa C", "Casa H", "Complejo El Valle"]
   },
   "contact": {
     "eyebrow": "¿Estás buscando diseños y ejecución de excelencia para tu obra?",
@@ -87,7 +92,9 @@
     "direction": "Dirección de Obra",
     "message": "Mensaje",
     "send": "Enviar",
-    "alert": "Formulario de ejemplo — conectar a un backend o servicio de email para uso real."
+    "sending": "Enviando…",
+    "success": "¡Gracias! Recibimos tu mensaje y te vamos a contactar a la brevedad.",
+    "error": "No se pudo enviar. Probá de nuevo o escribinos por WhatsApp."
   },
   "footer": {
     "location": "Ubicación",
@@ -119,5 +126,43 @@
     "intro": "Notas sobre arquitectura, materiales y planificación de obra.",
     "read": "Leer nota",
     "back": "← Volver al blog"
+  },
+  "cinema": {
+    "scrollAria": "Recorrido cinematográfico de Codeex",
+    "navAria": "Navegación principal",
+    "menuAria": "Menú principal",
+    "logo": "Codeex Construcciones",
+    "navIntro": "Inicio",
+    "navServices": "Servicios",
+    "navProjects": "Proyectos",
+    "navContact": "Contacto",
+    "langAria": "Cambiar idioma",
+    "sliderAria": "Fortalezas de Codeex",
+    "controlsAria": "Controles del slider",
+    "prevAria": "Anterior",
+    "nextAria": "Siguiente",
+    "heroTitle": "Codeex Construcciones — arquitectura y construcción llave en mano en San Juan",
+    "cards": [
+      { "aria": "Sistema integral llave en mano", "kicker": "Llave en mano", "title": "Sistema integral", "text": "Diseño, gestión y ejecución bajo un mismo sistema: control, calidad y eficiencia en cada etapa." },
+      { "aria": "Trayectoria familiar desde el siglo XIX", "kicker": "Desde el siglo XIX", "title": "Trayectoria familiar", "text": "Una tradición constructiva con raíces a fines del siglo XIX, transmitida de generación en generación." },
+      { "aria": "Más de 216 proyectos ejecutados", "kicker": "Obra construida", "title": "+216 proyectos", "text": "Desarrollos residenciales y comerciales que ya son parte del entorno de San Juan." },
+      { "aria": "20.000 metros cuadrados construidos", "kicker": "Escala", "title": "20.000 m² construidos", "text": "Metros levantados con estándares de calidad, precisión y durabilidad." },
+      { "aria": "98% de satisfacción del cliente", "kicker": "Clientes", "title": "98% de satisfacción", "text": "Más de 400 clientes en toda la provincia nos eligieron y nos recomiendan." }
+    ],
+    "introAria": "Codeex en resumen",
+    "tagsAria": "Diferenciales de Codeex",
+    "introText": "Desde el diseño hasta la ejecución, desarrollamos proyectos donde cada decisión está pensada para lograr resultados de calidad, precisión y durabilidad.",
+    "tags": ["Llave en mano", "San Juan · Argentina", "Desde el siglo XIX"],
+    "bridgeAria": "Trayectoria de Codeex",
+    "bridgeTitle": "El buen construir, hecho sistema.",
+    "bridgeText": "Codeex integra diseño, gestión y ejecución bajo un sistema llave en mano, con raíces en una tradición familiar de obra que se remonta a fines del siglo XIX.",
+    "bridgeFacts": [
+      { "dt": "1890s", "dd": "Raíces de la tradición constructiva de la familia Corallo" },
+      { "dt": "216+", "dd": "Proyectos ejecutados en San Juan y la región" }
+    ],
+    "bazaarAria": "Proceso de trabajo de Codeex",
+    "bazaarTitle": "Cada etapa, bajo un mismo control.",
+    "bazaarText": "Diseño, dirección de obra y construcción coordinados por un solo equipo, de principio a fin.",
+    "bazaarNote": "Ver servicios"
   }
 }

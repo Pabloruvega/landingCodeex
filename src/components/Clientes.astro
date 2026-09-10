@@ -1,5 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import { getDictionary, getLocale } from '../i18n/utils';
+import cliente1 from '../assets/Recurso-500.webp';
+import cliente2 from '../assets/Recurso-450.webp';
+import cliente3 from '../assets/Recurso-460.webp';
+import cliente4 from '../assets/Recurso-470.webp';
+import cliente5 from '../assets/Recurso-480.webp';
+import cliente6 from '../assets/Recurso-490.webp';
 const dictionary = getDictionary(getLocale(Astro.currentLocale));
+const logos = [cliente1, cliente2, cliente3, cliente4, cliente5, cliente6];
 ---
-<div class="clientes"><div class="container"><h3>{dictionary.clients.title}</h3><div class="logos"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-500.webp" alt="Cliente 1"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-450.webp" alt="Cliente 2"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-460.webp" alt="Cliente 3"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-470.webp" alt="Cliente 4"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-480.webp" alt="Cliente 5"><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/Recurso-490.webp" alt="Cliente 6"></div></div></div>
+<div class="clientes"><div class="container"><h3>{dictionary.clients.title}</h3><div class="logos">{logos.map((logo, index) => <Image src={logo} alt={`Cliente ${index + 1}`} />)}</div></div></div>

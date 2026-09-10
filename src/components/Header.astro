@@ -8,7 +8,7 @@ const otherLocale = locale === 'es' ? 'en' : 'es';
 <header transition:persist="site-header">
   <div class="nav-wrap container" style="padding-left:0; padding-right:0;">
     <a class="logo" href={localizedUrl(locale)}><img src={logo.src} alt="Codeex Construcciones"></a>
-    <nav>
+    <nav id="site-nav">
       <ul>
         <li><a href="#proyecto-coral">{dictionary.nav.coral}</a></li>
         <li><a href="#proyecto-umbra">{dictionary.nav.umbra}</a></li>
@@ -23,7 +23,37 @@ const otherLocale = locale === 'es' ? 'en' : 'es';
       <a class="desktop-only" href="https://api.whatsapp.com/send/?phone=5492645272888&text=Hola%2C+necesito+informaci%C3%B3n+sobre&type=phone_number&app_absent=0" aria-label={dictionary.whatsappLabel}>{dictionary.whatsappLabel}</a>
       <a class="desktop-only" href="https://www.instagram.com/codeexconstrucciones/" aria-label="Instagram">Instagram</a>
       <a class="language-switch" href={switchLocaleUrl(otherLocale, Astro.url.pathname)} aria-label={dictionary.languageSwitchLabel}>{dictionary.language}</a>
-      <button class="menu-toggle" aria-label={dictionary.menuLabel}>&#9776;</button>
+      <button class="menu-toggle" type="button" aria-label={dictionary.menuLabel} aria-controls="site-nav" aria-expanded="false"><span class="menu-toggle-bar"></span></button>
     </div>
   </div>
 </header>
+
+<script>
+  function initMobileMenu() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const toggle = header.querySelector('.menu-toggle');
+    const nav = header.querySelector('#site-nav');
+    if (!toggle || !nav || toggle.dataset.bound === 'true') return;
+    toggle.dataset.bound = 'true';
+
+    const close = () => {
+      header.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    toggle.addEventListener('click', () => {
+      const open = header.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a')) close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') close();
+    });
+  }
+
+  initMobileMenu();
+  document.addEventListener('astro:page-load', initMobileMenu);
+</script>

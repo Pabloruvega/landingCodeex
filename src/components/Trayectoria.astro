@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { getDictionary, getLocale } from '../i18n/utils';
+import trayectoriaImg from '../assets/02-5.webp';
 const dictionary = getDictionary(getLocale(Astro.currentLocale));
 ---
 <section class="trayectoria" id="nosotros" data-reveal>
@@ -7,6 +9,7 @@ const dictionary = getDictionary(getLocale(Astro.currentLocale));
     <div>
       <div class="eyebrow">{dictionary.trajectory.eyebrow}</div>
       <h2 class="section-title">{dictionary.trajectory.title}</h2>
+      <Image class="trayectoria-img" src={trayectoriaImg} alt={dictionary.trajectory.title} loading="lazy" />
     </div>
     <div>
       {dictionary.trajectory.paragraphs.map((paragraph) => <p>{paragraph}</p>)}

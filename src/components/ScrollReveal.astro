@@ -1,39 +1,75 @@
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-t {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition-delay: calc(var(--reveal-i, 0) * 0.075s);
+    }
+    .reveal-t.reveal-in {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
 <script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  function collectTargets(section: HTMLElement): HTMLElement[] {
+    const items = Array.from(section.querySelectorAll<HTMLElement>('[data-reveal-item]'));
+    return items.length > 0 ? items : [section];
+  }
 
-  gsap.registerPlugin(ScrollTrigger);
+  function initReveal() {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canObserve = 'IntersectionObserver' in window && !reduce;
 
-  let animationContext: { revert: () => void } | undefined;
+    sections.forEach((section) => {
+      collectTargets(section).forEach((el, i) => {
+        el.style.setProperty('--reveal-i', String(i));
+        el.classList.add('reveal-t');
+      });
+    });
 
-  function setupReveals() {
-    animationContext?.revert();
+    const revealSection = (section: HTMLElement) => {
+      collectTargets(section).forEach((el) => el.classList.add('reveal-in'));
+    };
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!canObserve) {
+      sections.forEach(revealSection);
       return;
     }
 
-    animationContext = gsap.context(() => {
-      document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((section) => {
-        const items = section.querySelectorAll<HTMLElement>('[data-reveal-item]');
-        const targets = items.length > 0 ? items : [section];
-
-        gsap.from(targets, {
-          y: 28,
-          autoAlpha: 0,
-          duration: 0.7,
-          ease: 'power2.out',
-          stagger: items.length > 1 ? 0.12 : 0,
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 82%',
-            once: true,
-          },
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            revealSection(entry.target as HTMLElement);
+            io.unobserve(entry.target);
+          }
         });
-      });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.03 }
+    );
+
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top < window.innerHeight * 1.15) {
+        revealSection(section);
+      } else {
+        io.observe(section);
+      }
     });
+
+    // Safety net: never leave content permanently hidden.
+    window.setTimeout(() => {
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top < window.innerHeight * 2) {
+          revealSection(section);
+        }
+      });
+    }, 4000);
   }
 
-  document.addEventListener('astro:page-load', setupReveals);
-  setupReveals();
+  initReveal();
+  document.addEventListener('astro:page-load', initReveal);
 </script>

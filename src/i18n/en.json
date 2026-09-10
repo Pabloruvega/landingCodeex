@@ -71,7 +71,12 @@
     "umbraTitle": "Elegance and sustainability in San Juan's best location",
     "umbraDescription": "Umbra Del Bono Residences proposes a new way of living in a space that breathes with its surroundings, protecting and embracing those who inhabit it. Contemporary architecture in dialogue with nature.",
     "umbraLocation": "Intersección de Esteban Echeverría y Nuche, Rivadavia Oeste",
-    "more": "Learn more"
+    "more": "Learn more",
+    "badge": "Turnkey development",
+    "coralName": "Complejo Coral",
+    "umbraName": "Umbra del Bono Residence",
+    "toggleAria": "Show or hide project details",
+    "grid": ["Complejo Rubik", "Codeex Offices", "Casa C", "Casa H", "Complejo El Valle"]
   },
   "contact": {
     "eyebrow": "Are you looking for excellence in design and execution for your project?",
@@ -87,7 +92,9 @@
     "direction": "Site management",
     "message": "Message",
     "send": "Send",
-    "alert": "Example form — connect it to a backend or email service for real use."
+    "sending": "Sending…",
+    "success": "Thank you! We received your message and will get back to you shortly.",
+    "error": "Couldn't send. Please try again or reach us on WhatsApp."
   },
   "footer": {
     "location": "Location",
@@ -119,5 +126,43 @@
     "intro": "Notes on architecture, materials, and construction planning.",
     "read": "Read article",
     "back": "← Back to blog"
+  },
+  "cinema": {
+    "scrollAria": "Codeex cinematic scroll story",
+    "navAria": "Primary navigation",
+    "menuAria": "Main menu",
+    "logo": "Codeex Construcciones",
+    "navIntro": "Home",
+    "navServices": "Services",
+    "navProjects": "Projects",
+    "navContact": "Contact",
+    "langAria": "Change language",
+    "sliderAria": "Codeex strengths",
+    "controlsAria": "Slider controls",
+    "prevAria": "Previous",
+    "nextAria": "Next",
+    "heroTitle": "Codeex Construcciones — turnkey architecture and construction in San Juan",
+    "cards": [
+      { "aria": "Turnkey integrated system", "kicker": "Turnkey", "title": "Integrated system", "text": "Design, management, and execution under one system: control, quality, and efficiency at every stage." },
+      { "aria": "Family experience since the 19th century", "kicker": "Since the 1800s", "title": "Family experience", "text": "A building tradition rooted in the late 19th century, passed down from generation to generation." },
+      { "aria": "More than 216 completed projects", "kicker": "Built work", "title": "216+ projects", "text": "Residential and commercial developments that are already part of San Juan's landscape." },
+      { "aria": "20,000 square metres built", "kicker": "Scale", "title": "20,000 m² built", "text": "Square metres raised to standards of quality, precision, and durability." },
+      { "aria": "98% client satisfaction", "kicker": "Clients", "title": "98% satisfaction", "text": "More than 400 clients across the province have chosen and recommended us." }
+    ],
+    "introAria": "Codeex overview",
+    "tagsAria": "Codeex highlights",
+    "introText": "From design to execution, we develop projects where every decision is made to achieve quality, precision, and durability.",
+    "tags": ["Turnkey", "San Juan · Argentina", "Since the 19th century"],
+    "bridgeAria": "Codeex experience",
+    "bridgeTitle": "Building well, turned into a system.",
+    "bridgeText": "Codeex integrates design, management, and execution under a turnkey system, rooted in a family building tradition that goes back to the late 19th century.",
+    "bridgeFacts": [
+      { "dt": "1800s", "dd": "Roots of the Corallo family's building tradition" },
+      { "dt": "216+", "dd": "Projects completed in San Juan and the region" }
+    ],
+    "bazaarAria": "How Codeex works",
+    "bazaarTitle": "Every stage, under one hand.",
+    "bazaarText": "Design, site management, and construction coordinated by a single team, from start to finish.",
+    "bazaarNote": "See services"
   }
 }

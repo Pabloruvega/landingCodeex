@@ -1,14 +1,18 @@
 ---
+import { Image } from 'astro:assets';
 import { getDictionary, getLocale } from '../i18n/utils';
+import disenoImg from '../assets/07-2.webp';
+import direccionImg from '../assets/08-1.webp';
+import construccionImg from '../assets/09-1.webp';
 const dictionary = getDictionary(getLocale(Astro.currentLocale));
 ---
 <section class="servicios" id="servicios" data-reveal>
   <div class="container">
     <div class="head"><div class="eyebrow">{dictionary.services.eyebrow}</div><h2 class="section-title">{dictionary.services.title}</h2></div>
     <div class="grid">
-      <div class="serv-card" data-reveal-item><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/07-2.webp" alt={dictionary.services.designAlt}><div class="label"><h3>{dictionary.services.design}</h3><span>{dictionary.services.more}</span></div></div>
-      <div class="serv-card" data-reveal-item><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/08-1.webp" alt={dictionary.services.directionAlt}><div class="label"><h3>{dictionary.services.direction}</h3><span>{dictionary.services.more}</span></div></div>
-      <div class="serv-card" data-reveal-item><img src="https://codeexconstrucciones.com.ar/wp-content/uploads/2026/06/09-1.webp" alt={dictionary.services.constructionAlt}><div class="label"><h3>{dictionary.services.construction}</h3><span>{dictionary.services.more}</span></div></div>
+      <div class="serv-card" data-reveal-item><Image src={disenoImg} alt={dictionary.services.designAlt} /><div class="label"><h3>{dictionary.services.design}</h3><span>{dictionary.services.more}</span></div></div>
+      <div class="serv-card" data-reveal-item><Image src={direccionImg} alt={dictionary.services.directionAlt} /><div class="label"><h3>{dictionary.services.direction}</h3><span>{dictionary.services.more}</span></div></div>
+      <div class="serv-card" data-reveal-item><Image src={construccionImg} alt={dictionary.services.constructionAlt} /><div class="label"><h3>{dictionary.services.construction}</h3><span>{dictionary.services.more}</span></div></div>
     </div>
   </div>
 </section>
